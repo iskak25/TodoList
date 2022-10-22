@@ -9,14 +9,21 @@ if (localStorage.getItem("todo")) {
 }
 
 addButton.addEventListener("click", function () {
+  if (!addMessage.value) {
+    alert("Введите данные");
+    return;
+  }
   let newTodo = {
     todo: addMessage.value,
+
     checked: false,
     important: false,
   };
+
   todoList.push(newTodo);
   displayMessages();
   localStorage.setItem("todo", JSON.stringify(todoList));
+  addMessage.value = "";
 });
 
 function displayMessages() {
@@ -31,7 +38,9 @@ function displayMessages() {
       item.important ? "important" : ""
     }">${item.todo}</label>
   </li>
-        `;
+   
+    `;
+
     todo.innerHTML = displayMessage;
   });
 }
@@ -54,6 +63,7 @@ todo.addEventListener("contextmenu", function (event) {
     if (item.todo === event.target.innerHTML) {
       if (event.ctrlKey || event.metaKey) {
         todoList.splice(i, 1);
+        displayMessages();
       } else {
         item.important = !item.important;
       }
@@ -63,7 +73,3 @@ todo.addEventListener("contextmenu", function (event) {
     localStorage.setItem("todo", JSON.stringify(todoList));
   });
 });
-
-// function deleteTodo(index) {
-//   console.log(index);
-// }

@@ -15,14 +15,14 @@ body {
   color: #a40e11;
 }
 
-.btn {
-  width: 60px;
+.add {
+  width: 100%;
   border: none;
   border-radius: 10px;
   font-weight: bold;
   text-align: center;
   height: 30px;
-  background-color: rgb(189, 49, 49);
+  background-color: rgb(54, 49, 189);
 }
 
 .todo_list {
@@ -42,6 +42,13 @@ h1 {
   margin-bottom: 20px;
   color: #fff;
   font-size: 30px;
+}
+p {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 20px;
 }
 
 .create_new_todo {
